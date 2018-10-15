@@ -7,6 +7,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             parent::__construct();
             //load model admin
             $this->load->model('M_login');
+            $this->load->model('m_absensi');
+            $this->load->model('m_jemaat');
         }
 
         function index(){
@@ -27,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
 
         function saveAbsen(){
-            $this->load->model('m_absensi');
+            
             $nama = $this->input->post('nama');
             $datamaster = array(
                 'ID_Anggota'=>strtoupper($this->input->post('idanggota')),         
@@ -42,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         {
             /** AJAX Handle */
             if( $this->input->is_ajax_request() )  {
-                $this->load->model('m_jemaat');
+                
                 /**
                  * Mengambil Parameter dan Perubahan nilai dari setiap 
                  * aktifitas pada table
@@ -50,8 +52,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 */
                 $datatables  = $_POST;
                 $datatables['table']    = 'anggota';
-                $datatables['id-table'] = 'ID_Anggota';
-                
+                $datatables['id-table'] = 'anggota.ID_Anggota';
+                $tanggal = $this->input->post('tanggal');
                 /**
                  * Kolom yang ditampilkan
                  */
@@ -77,7 +79,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 /**
                 * menggunakan table join
                 */
-                $datatables['join']    = 'INNER JOIN komsel ON komsel.no = anggota.Komsel';
+                $datatables['join']    = "INNER JOIN komsel ON komsel.no = anggota.Komsel
+                            LEFT JOIN (SELECT * FROM absensi WHERE Tanggal = '$tanggal') as absen ON absen.ID_Anggota = anggota.ID_Anggota";
                 $this->m_jemaat->Datatables_absensi($datatables);
             }
             return;

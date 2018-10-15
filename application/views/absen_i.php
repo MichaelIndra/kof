@@ -1,4 +1,40 @@
 <script>
+var tabel;
+var tanggal;
+    $(document).ready(function() {   
+           
+           $('.tanggal').datepicker({
+                format: "yyyy-mm-dd",
+                autoclose:true
+                
+            }).datepicker('setDate', 'today')
+              .on('changeDate', function(e){
+                tabel.ajax.reload();
+              });
+            
+            tabel = $('#example').DataTable({
+               "processing": true,
+               "serverSide": true,
+               language: {
+                    infoEmpty: "No records available - Got it?",
+                },
+               "ajax": {
+                   "url": "<?php echo base_url('absensi/datatables_ajax');?>",
+                   "type": "POST",
+                   data : {tanggal : $("input[name =tglibadah]").val()}
+               },
+               columnDefs: [{
+                    targets: 3,
+                    searchable: false,
+                    orderable: false,
+                    className: 'dt-body-center'
+                    
+                }]
+            });
+
+
+    });
+
 
     function inputAbsen(idAnggota, nama){
         $(document).ready(function() {
@@ -14,42 +50,20 @@
                         dataType : "JSON",
                         success: function (data){
                             $.each(data, function(Nama){
-                            
-                
-                        });
+                                if(data.res == 1){
+                                    tabel.ajax.reload();
+                                }
+                            });
                     }
                 });
             }
         });
     }
-    $(document).ready(function() {
-           $('#example').DataTable({
-               "processing": true,
-               "serverSide": true,
-               language: {
-                    infoEmpty: "No records available - Got it?",
-                },
-               "ajax": {
-                   "url": "<?php echo base_url('absensi/datatables_ajax');?>",
-                   "type": "POST"
-               },
-               columnDefs: [{
-                    targets: 3,
-                    searchable: false,
-                    orderable: false,
-                    className: 'dt-body-center'
-                    
-                }]
-           });
-         
-           
-           $('.tanggal').datepicker({
-                format: "yyyy-mm-dd",
-                autoclose:true
-                
-            }).datepicker('setDate', 'today'); 
-    });
     
+    
+    
+    
+        
 </script>
 
 

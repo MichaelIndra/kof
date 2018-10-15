@@ -35,129 +35,129 @@
   
 
   <!-- MODAL EDIT -->
-  <div class="modal fade" id="ModalaEdit"  role="dialog" aria-labelledby="largeModal" aria-hidden="true">
-            <div class="modal-dialog">
+  <div class="modal fade" id="ModalaEdit" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 class="modal-title" id="myModalLabel">Edit Jemaat</h3>
-            </div>
-            <form class="form-horizontal">
-            <?php  echo form_hidden('idanggota', ''); ?>
-                <div class="modal-body">
-                
-                <div class ="form-group">
-                    <label for="namajemaat">Nama Jemaat</label>
-                    <?php echo form_input(array(
-                        'type'=>'text',
-                        'name'=>'namajemaat',
-                        'class'=>"form-control",
-                        'style'=>"width:335px;"
-                    ));  ?> <label for="namajemaaterror" class='namajemaaterror'></label>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 class="modal-title" id="myModalLabel">Edit Jemaat</h3>
                 </div>
+                <form class="form-horizontal">
+                <?php  echo form_hidden('idanggota', ''); ?>
+                    <div class="modal-body mx-3">
+                    
+                        <div class ="md-form mb-5">
+                            <label for="namajemaat">Nama Jemaat</label>
+                            <?php echo form_input(array(
+                                'type'=>'text',
+                                'name'=>'namajemaat',
+                                'class'=>"form-control",
+                                'style'=>"width:335px;"
+                            ));  ?> <label for="namajemaaterror" class='namajemaaterror'></label>
+                        </div>
 
-                <div class ="form-group">
-                    <label for="namapanggilan">Nama Panggilan</label>
-                    <?php echo form_input(array(
-                        'type'=>'text',
-                        'name'=>'namapanggilan',
-                        'class'=>"form-control",
-                        'style'=>"width:335px;"
-                    ));  ?> <label for="namapanggilanerror" class ='namapanggilanerror'></label>
-                </div>
+                        <div class ="md-form mb-5">
+                            <label for="namapanggilan">Nama Panggilan</label>
+                            <?php echo form_input(array(
+                                'type'=>'text',
+                                'name'=>'namapanggilan',
+                                'class'=>"form-control",
+                                'style'=>"width:335px;"
+                            ));  ?> <label for="namapanggilanerror" class ='namapanggilanerror'></label>
+                        </div>
 
-                <div class ="form-group">
-                    <label for="komsel">Komsel</label></br>
-                    <?php echo form_dropdown('komsel', $datakomsel, '', array(
-                        'class'=>"form-control komsel input-large",
-                        'style'=>"width:335px;"
-                    ));  ?> <label for="komselerror" class ='komselerror'></label>
-                </div>
+                        <div class ="md-form mb-5">
+                            <label for="komsel">Komsel</label></br>
+                            <?php echo form_dropdown('komsel', $datakomsel, '', array(
+                                'class'=>"form-control komsel input-large",
+                                'style'=>"width:335px;"
+                            ));  ?> <label for="komselerror" class ='komselerror'></label>
+                        </div>
 
-                <div class ="form-group">
-                    <label for="alamat">Alamat</label>
-                    <?php echo form_input(array(
-                        'type'=>'text',
-                        'name'=>'alamat',
-                        'class'=>"form-control",
-                        'style'=>"width:335px;"
-                    ));  ?> <label for="alamaterror" class ='alamaterror'></label>
-                </div>
+                        <div class ="md-form mb-5">
+                            <label for="alamat">Alamat</label>
+                            <?php echo form_input(array(
+                                'type'=>'text',
+                                'name'=>'alamat',
+                                'class'=>"form-control",
+                                'style'=>"width:335px;"
+                            ));  ?> <label for="alamaterror" class ='alamaterror'></label>
+                        </div>
 
-                <div class ="form-group">
-                    <label for="jeniskelamin">Jenis Kelamin</label>
-                    <label class ='radio-inline'>
-                        <?php echo form_input(array(
-                            'type'=>'radio',
-                            'name'=>'jeniskelamin',
-                            'value'=> 'PRIA',
-                            'class'=>"input_check_radio"
-                        ));  ?>
-                    Pria</label>
-                    <label class ='radio-inline'>
-                        <?php echo form_input(array(
-                            'type'=>'radio',
-                            'name'=>'jeniskelamin',
-                            'value'=> 'WANITA',
-                            'class'=>"input_check_radio"
-                        ));  ?> 
-                    Wanita</label>
-                </div>
+                        <div class ="md-form mb-5">
+                            <label for="jeniskelamin">Jenis Kelamin</label>
+                            <label class ='radio-inline'>
+                                <?php echo form_input(array(
+                                    'type'=>'radio',
+                                    'name'=>'jeniskelamin',
+                                    'value'=> 'PRIA',
+                                    'class'=>"input_check_radio"
+                                ));  ?>
+                            Pria</label>
+                            <label class ='radio-inline'>
+                                <?php echo form_input(array(
+                                    'type'=>'radio',
+                                    'name'=>'jeniskelamin',
+                                    'value'=> 'WANITA',
+                                    'class'=>"input_check_radio"
+                                ));  ?> 
+                            Wanita</label>
+                        </div>
 
-                <div class ="form-group">
-                    <label for="nohp">No Hp</label>
-                    <?php echo form_input(array(
-                        'name'=>'nohp',
-                        'type'=>'text',
-                        'id'=>'nohp',
-                        'class'=>"form-control",
-                        'style'=>"width:335px;"
-                    ));  ?> <label for="nohperror" class='nohperror'></label>
-                </div>
+                        <div class ="md-form mb-5">
+                            <label for="nohp">No Hp</label>
+                            <?php echo form_input(array(
+                                'name'=>'nohp',
+                                'type'=>'text',
+                                'id'=>'nohp',
+                                'class'=>"form-control",
+                                'style'=>"width:335px;"
+                            ));  ?> <label for="nohperror" class='nohperror'></label>
+                        </div>
 
-                <div class ="form-group">
-                    <label for="nowa">No WA</label>
-                    <?php echo form_input('nowa','',array(
-                        'type'=>'text',
-                        'id'=>'nowa',
-                        'class'=>"form-control",
-                        'style'=>"width:335px;"
-                    )); 
-                    echo form_input(array(
-                        'type'=> "checkbox",
-                        'id' =>'samehp'
-                    ));?> Sama dengan No HP <label for="nowaerror" class ='nowaerror'></label>
-                </div>
+                        <div class ="md-form mb-5">
+                            <label for="nowa">No WA</label>
+                            <?php echo form_input('nowa','',array(
+                                'type'=>'text',
+                                'id'=>'nowa',
+                                'class'=>"form-control",
+                                'style'=>"width:335px;"
+                            )); 
+                            echo form_input(array(
+                                'type'=> "checkbox",
+                                'id' =>'samehp'
+                            ));?> Sama dengan No HP <label for="nowaerror" class ='nowaerror'></label>
+                        </div>
 
-                <div class ="form-group">
-                    <label for="tgllahir">Tanggal Lahir</label>
-                    <?php echo form_input('tgllahir', '',array(
-                        'type'=>'text',
-                        'class'=>"tanggal form-control",
-                        'style'=>"width:335px;"
-                    ));  ?> <label for="tgllahirerror" class ='tgllahirerror'></label>
-                </div>
+                        <div class ="md-form mb-5">
+                            <label for="tgllahir">Tanggal Lahir</label>
+                            <?php echo form_input('tgllahir', '',array(
+                                'type'=>'text',
+                                'class'=>"tanggal form-control",
+                                'style'=>"width:335px;"
+                            ));  ?> <label for="tgllahirerror" class ='tgllahirerror'></label>
+                        </div>
 
-                <div class ="form-group">
-                    <label for="email">Email</label>
-                    <?php echo form_input(array(
-                        'type'=>'text',
-                        'name'=>'email',
-                        'class'=>"form-control",
-                        'style'=>"width:335px;"
-                    ));  ?> <label for="emailerror" class ='emailerror'></label>
-                </div>
- 
-                </div>
- 
-                <div class="modal-footer">
-                    <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
-                    <button class="btn btn-info" id="btn_update">Update</button>
-                </div>
-            </form>
-            </div>
+                        <div class ="md-form mb-5">
+                            <label for="email">Email</label>
+                            <?php echo form_input(array(
+                                'type'=>'text',
+                                'name'=>'email',
+                                'class'=>"form-control",
+                                'style'=>"width:335px;"
+                            ));  ?> <label for="emailerror" class ='emailerror'></label>
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
+                        <button class="btn btn-info" id="btn_update">Update</button>
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
         <!--END MODAL EDIT-->
 
   
@@ -393,4 +393,3 @@
     } );
 } );
   </script>
-<?php echo md5('SARIPK'); ?>

@@ -190,6 +190,7 @@
                 $sql .= " WHERE " . $where;
                 
             }
+            
             // sorting
             $sql .= " ORDER BY {$columnd[$dt['order'][0]['column']]} {$dt['order'][0]['dir']}";
             
@@ -294,7 +295,9 @@
              */
             if ($where != '') {
                 $sql .= " WHERE " . $where;
-                
+                $sql .= " AND absen.Tanggal is null";
+            }else{
+                $sql .= " WHERE absen.Tanggal is null";
             }
             
             // sorting
@@ -309,6 +312,7 @@
             /**
              * convert to json
              */
+            $option['sql']             = $sql;
             $option['draw']            = $dt['draw'];
             $option['recordsTotal']    = $rowCount;
             $option['recordsFiltered'] = $rowCount;
