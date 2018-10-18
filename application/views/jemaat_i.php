@@ -77,7 +77,8 @@ var cekbox = false;
         'type'=>'text',
         'name'=>'namajemaat',
         'value'=> set_value('namajemaat'),
-        'class'=>"form-control"
+        'class'=>"form-control",
+        'id'=>'namajemaat'
     ));  ?> <label for="namajemaaterror"><?php echo form_error('namajemaat'); ?></label>
 </div>
 

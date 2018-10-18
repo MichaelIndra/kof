@@ -9,21 +9,48 @@ var tanggal;
                 
             }).datepicker('setDate', 'today')
               .on('changeDate', function(e){
-                tabel.ajax.reload();
+                tabel.clear();
+                tabel.destroy();
+                tabel = $('#example').DataTable({
+                    "processing" : true,
+                    "serverSide" : true,
+                    language     : {
+                            infoEmpty: "No records available - Got it?",
+                        },
+                    "ajax"       : {
+                        "url": "<?php echo base_url('absensi/datatables_ajax');?>",
+                        "type": "POST",
+                        data : {tanggal : $("input[name =tglibadah]").val()},
+                        
+                    },
+                    
+                    
+                    columnDefs   : [{
+                            targets: 3,
+                            searchable: false,
+                            orderable: false,
+                            className: 'dt-body-center'
+                            
+                        }]
+                    });
+
               });
             
             tabel = $('#example').DataTable({
-               "processing": true,
-               "serverSide": true,
-               language: {
+               "processing" : true,
+               "serverSide" : true,
+               language     : {
                     infoEmpty: "No records available - Got it?",
                 },
-               "ajax": {
+               "ajax"       : {
                    "url": "<?php echo base_url('absensi/datatables_ajax');?>",
                    "type": "POST",
-                   data : {tanggal : $("input[name =tglibadah]").val()}
+                   data : {tanggal : $("input[name =tglibadah]").val()},
+                   
                },
-               columnDefs: [{
+               
+               
+               columnDefs   : [{
                     targets: 3,
                     searchable: false,
                     orderable: false,

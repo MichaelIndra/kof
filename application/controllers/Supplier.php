@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'judul' => 'Data Supplier Kantin KOF'                    
                 );
                 $this->load->view('header', $data);
-                $this->load->view('dashboard_detail');
+                $this->load->view('dashboard_kantin');
                 $this->load->view('supplier', $data);
                 $this->load->view('footer', $data);
             }else{

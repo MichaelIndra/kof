@@ -53,7 +53,8 @@
                                 'name'=>'namajemaat',
                                 'class'=>"form-control",
                                 'style'=>"width:335px;"
-                            ));  ?> <label for="namajemaaterror" class='namajemaaterror'></label>
+                            ));  ?> 
+                             <label for="namajemaaterror" class='namajemaaterror'></label>
                         </div>
 
                         <div class ="md-form mb-5">

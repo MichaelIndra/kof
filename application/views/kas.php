@@ -40,9 +40,9 @@
                 <h3 class="modal-title" id="myModalLabel">Input Data Kas</h3>
             </div>
             <form class="form-horizontal">
-                <div class="modal-body">
+                <div class="modal-body mx-3">
 
-                    <div class ="form-group">
+                    <div class ="md-form mb-5">
                         <label for="cashflow">Cash Flow</label></br>
                         <?php echo form_dropdown('cashflow', $masterkas, '', array(
                             'class'=>"form-control cashflow input-large",
@@ -50,7 +50,7 @@
                         ));  ?> <label for="cashflowerror" class ='cashflowerror'></label>
                     </div>
 
-                    <div class ="form-group">
+                    <div class ="md-form mb-5">
                         <label for="Jumlah">Jumlah</label>
                         <?php echo form_input(array(
                             'type'=>'text',
@@ -61,7 +61,7 @@
                         ));  ?> <label for="jumlaherror" class='jumlaherror'></label>
                     </div>
 
-                <div class ="form-group">
+                <div class ="md-form mb-5">
                     <label for="tgltransaksi">Tanggal Transaksi</label>
                     <?php echo form_input('tgltransaksi', '',array(
                         'type'=>'text',
@@ -70,7 +70,7 @@
                     ));  ?> <label for="tgltransaksierror" class ='tgltransaksierror'></label>
                 </div>
 
-                <div class ="form-group">
+                <div class ="md-form mb-5">
                     <label for="email">Keterangan</label>
                     <?php echo form_input(array(
                         'type'=>'textarea',
@@ -153,7 +153,7 @@
 
         $("#btn_save").on('click', function(){
             var jumlah = $('[name ="jumlah"]').val();
-            if(jumlah.length<=0){
+            if(jumlah.length<=0 || jumlah == 0){
                 $('.jumlaherror').html('Jumlah uang tidak boleh kosong').show().fadeOut("slow");
                 return false;
             }

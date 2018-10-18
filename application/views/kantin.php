@@ -11,7 +11,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <div class="navbar-form navbar-right">
-                <a href="<?php echo base_url() ?>/dashboard/logout" type="submit" class="btn btn-success"><i class="fa fa-sign-out"></i> Logout</a>
+                <a href="<?php echo base_url() ?>Dashboard" type="submit" class="btn btn-success"><i class="fa fa-sign-out"></i> Dashboard</a>
             </div>
         </div>
 </nav>
@@ -20,19 +20,18 @@
         <div class="col-md-3">
             <div class="list-group">
               <a href="#" class="list-group-item active" style="text-align: center;background-color: black;border-color: black">
-                ADMINISTRATOR
+                ADMINISTRATOR Kantin
               </a>
-              <a href="<?php echo base_url();?>Jemaat" class="list-group-item"><i class="fa fa-book"></i> Jemaat</a>
-              <a href="<?php echo base_url();?>Absensi" class="list-group-item"><i class="fa fa-folder"></i> Absensi</a>
-              <a href="<?php echo base_url();?>Kas" class="list-group-item"><i class="fa fa-comments-o"></i> Kas</a>
-              <a href="<?php echo base_url();?>Kantin" class="list-group-item"><i class="fa fa-comments-o"></i> Kantin</a>
+              <a href="<?php echo base_url();?>Supplier" class="list-group-item"><i class="fa fa-book"></i> Data Supplier</a>
+              <a href="<?php echo base_url();?>Dagangan" class="list-group-item"><i class="fa fa-folder"></i> Barang Dagang Supplier</a>
+              <a href="<?php echo base_url();?>Hargadagang" class="list-group-item"><i class="fa fa-comments-o"></i> Harga Dagang Supplier</a>
               
             </div>
         </div>
         <div class="col-md-9">
             <div class="panel panel-default">
               <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-dashboard"></i> Dashboard</h3>
+                <h3 class="panel-title"><i class="fa fa-dashboard"></i> Dashboard Kantin</h3>
               </div>
               <div class="panel-body">
                 Selamat Datang <b><?php echo $this->session->userdata("user_name") ?></b> 

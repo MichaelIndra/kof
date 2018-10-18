@@ -294,8 +294,9 @@
              * pencarian aktif jika ada karakter masuk pada kolom pencarian.
              */
             if ($where != '') {
-                $sql .= " WHERE " . $where;
+                $sql .= " WHERE (" . $where .") ";
                 $sql .= " AND absen.Tanggal is null";
+                
             }else{
                 $sql .= " WHERE absen.Tanggal is null";
             }

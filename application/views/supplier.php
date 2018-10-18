@@ -32,9 +32,9 @@
                 <h3 class="modal-title" id="myModalLabel">Input Supplier</h3>
             </div>
             <form class="form-horizontal">
-            <div class="modal-body">
+            <div class="modal-body mx-3">
                 
-                <div class ="form-group">
+                <div class ="md-form mb-5 ">
                     <label for="namasupplier">Nama Supplier</label>
                     <?php echo form_input(array(
                         'type'=>'text',
@@ -44,7 +44,7 @@
                     ));  ?> <label for="namasuppliererror" class='namasuppliererror'></label>
                 </div>
 
-                <div class ="form-group">
+                <div class ="md-form mb-5">
                     <label for="alamat">Alamat</label>
                     <?php echo form_input(array(
                         'type'=>'text',
@@ -54,7 +54,7 @@
                     ));  ?> <label for="alamaterror" class ='alamaterror'></label>
                 </div>
 
-                <div class ="form-group">
+                <div class ="md-form mb-5">
                     <label for="notelp">No Telepon</label>
                     <?php echo form_input(array(
                         'name'=>'notelp',
@@ -65,7 +65,7 @@
                     ));  ?> <label for="notelperror" class='notelperror'></label>
                 </div>
 
-                <div class ="form-group">
+                <div class ="md-form mb-5">
                     <label for="nowa">No WA</label>
                     <?php echo form_input('nowa','',array(
                         'type'=>'text',
@@ -103,9 +103,9 @@
             </div>
             <form class="form-horizontal">
             <?php  echo form_hidden('idsupp', ''); ?>
-                <div class="modal-body">
+                <div class="modal-body mx-3">
                 
-                <div class ="form-group">
+                <div class ="md-form mb-5">
                     <label for="namasupplier">Nama Supplier</label>
                     <?php echo form_input(array(
                         'type'=>'text',
@@ -115,7 +115,7 @@
                     ));  ?> <label for="namasuppliererroredit" class='namasuppliererroredit'></label>
                 </div>
 
-                <div class ="form-group">
+                <div class ="md-form mb-5">
                     <label for="alamat">Alamat</label>
                     <?php echo form_input(array(
                         'type'=>'text',
@@ -125,7 +125,7 @@
                     ));  ?> <label for="alamaterroredit" class ='alamaterroredit'></label>
                 </div>
 
-                <div class ="form-group">
+                <div class ="md-form mb-5">
                     <label for="notelp">No Telepon</label>
                     <?php echo form_input(array(
                         'name'=>'notelpedit',
@@ -136,7 +136,7 @@
                     ));  ?> <label for="notelperroredit" class='notelperroredit'></label>
                 </div>
 
-                <div class ="form-group">
+                <div class ="md-form mb-5">
                     <label for="nowa">No WA</label>
                     <?php echo form_input('nowaedit','',array(
                         'type'=>'text',
@@ -310,7 +310,7 @@
             var nowa = $('[name ="nowa"]').val();
             $.ajax({
                 type : "POST",
-                url  : "<?php echo base_url('Supplier/doInputJemaat')?>",
+                url  : "<?php echo base_url('Supplier/doInputSupplier')?>",
                 dataType : "JSON",
                 data : { namasupp:namasupp, alamat:alamat, notelp:nohp, nowa:nowa,},
                 success: function(data){
