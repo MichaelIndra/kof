@@ -133,7 +133,8 @@
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="update" >Nonaktifkan</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
       </div>
 
     </div>
@@ -143,11 +144,18 @@
 
 <style type="text/css">
     .uang{
-    text-align :right;
-}
+        text-align :right;
+    }
+
+    .datepicker table tr td.disabled,
+        .datepicker table tr td.disabled:hover {
+        background: none;
+        color: #999999;
+        cursor: default;
+    }
 </style>        
 <script>
-    var tabel;
+    var tabel; var idNo;
     var hargahpp = document.getElementById('hargahpp');
 	hargahpp.addEventListener('keyup', function(e)
 	{
@@ -190,13 +198,14 @@
     function nonaktif(id, no){
         $(document).ready(function() {
             var row = tabel.rows(no).data();
+            var tgl = (row[0][4]).split("-");
+            idNo = id;
             var tglawl = new Date((row[0][4]));
             $('.tglakhir').datepicker({
                 format: "yyyy-mm-dd",
-                numberOfMonths: 3,
                 autoclose:true,
-                minDate: tglawl
-            }).datepicker('setDate', tglawl);;
+                startDate: tglawl
+            }).datepicker('setDate', tglawl);
             
             $('#modalNonaktif').modal('show');
         
@@ -264,7 +273,31 @@
                     return false;
                 }
         });
+        $('#update').on('click', function(){
+            var tglakhir = $('[name ="tglakhir"]').val();
+            if(tglakhir.length<=0){
+                $('.tglakhirerror').html('Tanggal akhir tidak boleh kosong').show().fadeOut("slow");
+                return false;
+            }
+            $.ajax({
+                type : "POST",
+                url  : "<?php echo base_url('Hargadagang/updateTglAkhir')?>",
+                dataType : "JSON",
+                data : {no:idNo, Tgl_Akhir:tglakhir},
+                success: function(data){
+                    $.each(data, function(Nama){
+                        if(data.result == 'yes'){
+                            $('#modalNonaktif').modal('hide');
+                            tabel.ajax.reload();
+                        }
+                        
+                    });
+                    
+                }
+            });
+            return false;
 
+        });
         $('#btn_input').on('click',function(){
             var iddagang = $('[name ="dagangan"]').val();
             if(iddagang.length<=0){

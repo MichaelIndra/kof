@@ -11,6 +11,7 @@
         <link href="<?php echo base_url('assets/DataTables/css/jquery.dataTables.min.css');?>" rel="stylesheet" />
         <link href="<?php echo base_url('assets/DataTables/css/dataTables.checkboxes.css');?>" rel="stylesheet" />
         <link href="<?php echo base_url('assets/select2/css/select2.css');?>" rel="stylesheet" />
+        <link href="<?php echo base_url('assets/easyautocomplete/easy-autocomplete.min.css');?>" rel="stylesheet" />
         
         <script src="<?php echo base_url('assets/jquery/js/jquery.min.js');?>"></script>
         <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js');?>"></script>
@@ -18,5 +19,6 @@
         <script src="<?php echo base_url('assets/DataTables/js/dataTables.checkboxes.min.js');?>"></script>
         <script src="<?php echo base_url('assets/calender/js/bootstrap-datepicker.js');?>"></script>
         <script src="<?php echo base_url('assets/select2/js/select2.min.js');?>"></script>
+        <script src="<?php echo base_url('assets/easyautocomplete/jquery.easy-autocomplete.min.js');?>"></script>
     </head>
     <body>

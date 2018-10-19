@@ -17,6 +17,7 @@
         }
 
         function getSupplier(){
+            $dd = '';
             $this->db->order_by('Nama', 'asc');
             $result = $this->db->get($this->TABLE_NAME);
             if($result->result() > 0){

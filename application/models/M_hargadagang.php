@@ -3,6 +3,16 @@
     class m_hargadagang extends CI_Model{
         var $TABLE_NAME = 'k_hargadagang';
 
+        function getDagangan($dt){
+            $columnsjoin    = implode(', ', $dt['col-join']);
+            $join           = $dt['join'];
+            $sql            = "SELECT {$columnsjoin} FROM {$this->TABLE_NAME} {$join}";
+            $whereTgl       = " WHERE (k_hargadagang.Tgl_Akhir is null) ";
+            $sql .= $whereTgl;
+            $list = $this->db->query($sql);           
+            return $list;
+        }
+
         function gettglakhir($iddagang)
         {
             $this->db->where('ID_Dagang', $iddagang);
@@ -16,6 +26,11 @@
             $this->db->where('ID_Dagang', $iddagang);
             $this->db->where('Tgl_Akhir is NULL', null, false);
             $this->db->update($this->TABLE_NAME,array('Tgl_Akhir'=>$tglakhir));
+        }
+
+        function updatetglakhir($id, $dt){
+            $this->db->where('no', $id);
+            $this->db->update($this->TABLE_NAME,$dt);
         }
 
         function saveMaster($data)

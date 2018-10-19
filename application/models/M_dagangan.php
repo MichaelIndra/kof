@@ -45,7 +45,7 @@
         }
 
         function getDaganganbyIdSupp(){
-            
+            $rows = '';
             $sql = "SELECT k_supplier.Nama, k_dagangan.Nama_Dagangan, k_dagangan.ID_Dagang FROM $this->TABLE_NAME INNER JOIN k_supplier ON k_supplier.ID_Supp = k_dagangan.ID_Supp ORDER BY k_supplier.Nama";
             $list = $this->db->query($sql);
             $count = $list->num_rows();
@@ -58,12 +58,14 @@
             return $rows;
         }
 
+        
+
         function Datatables($dt)
         {
             // $columns = implode(', ', $dt['col-display']) . ', ' . $dt['id-table'];
             $columnsjoin = implode(', ', $dt['col-join']) . ', ' . $dt['id-table'];
             $join = $dt['join'];
-             $sql  = "SELECT {$columnsjoin} FROM {$this->TABLE_NAME} {$join}";
+            $sql  = "SELECT {$columnsjoin} FROM {$this->TABLE_NAME} {$join}";
             // $sql  = "SELECT {$columns} FROM {$this->TABLE_NAME} ";
             $data = $this->db->query($sql);
             $rowCount = $data->num_rows();

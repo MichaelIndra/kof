@@ -25,7 +25,7 @@
               <a href="<?php echo base_url();?>Supplier" class="list-group-item"><i class="fa fa-book"></i> Data Supplier</a>
               <a href="<?php echo base_url();?>Dagangan" class="list-group-item"><i class="fa fa-folder"></i> Barang Dagang Supplier</a>
               <a href="<?php echo base_url();?>Hargadagang" class="list-group-item"><i class="fa fa-comments-o"></i> Harga Dagang Supplier</a>
-              
+              <a href="<?php echo base_url();?>Transaksi" class="list-group-item"><i class="fa fa-comments-o"></i> Transaksi</a>
             </div>
         </div>
         <div class="col-md-9">
